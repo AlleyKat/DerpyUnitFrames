@@ -1,0 +1,23 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/">
+	<Script file="local.lua"/>
+	<Script file="settings.lua"/>
+	<Script file="anim.lua"/>
+	<Script file="modules\experience.lua"/>
+	<Script file="modules\reputation.lua"/>
+	<Script file="modules\feedback.lua"/>
+	<Script file="modules\smooth.lua"/>
+	<Script file="modules\spellrange.lua"/>
+	<Script file="modules\threat.lua"/>
+	<Script file="modules\totembar.lua"/>
+	<Script file="modules\runes.lua"/>
+	<Script file="modules\shards.lua"/>
+	<Script file="modules\power.lua"/>
+	<Script file="modules\health.lua"/>
+	<Script file="modules\info.lua"/>
+	<Script file="modules\portraits.lua"/>
+	<Script file="modules\focuspocus.lua"/>
+	<Script file="modules\castbar.lua"/>
+	<Script file="popup.lua"/>
+	<Script file="spawn.lua"/>
+	<Script file="clean.lua"/>
+</Ui>

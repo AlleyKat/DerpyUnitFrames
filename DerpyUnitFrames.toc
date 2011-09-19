@@ -1,0 +1,8 @@
+## Interface: 40200
+## Author: AlleyKat, Thalyra, p3lim, Saiket, Ammo
+## Version: v0.1
+## Title: |cffcccc22D|r|cff999999erpy|rUnitFrames
+## RequiredDeps: oUF, DerpyMedia
+## OptionalDeps: oUF_CombatFeedback, oUF_TotemBar, oUF_Smooth, oUF_HealComm4, oUF_Experience, oUF_Swing, oUF_PowerSpark
+
+frames.xml
