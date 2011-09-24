@@ -77,11 +77,12 @@ W.Totems = function(self,var,unit)
 	end
 	if var.isf_pos == "TOP" then
 		lol_totem[1]:SetPoint('TOPLEFT', self.Power, 'BOTTOMLEFT', 0, -6)
+		self.BottomAuraUnchor:NewOffset(var.ph+6)
 	else
 		lol_totem[1]:SetPoint('BOTTOMLEFT', self.Power, 'TOPLEFT', 0, 6)
+		self.TopAuraUnchor:NewOffset(var.ph+6)
 	end
 	self.TotemBar = lol_totem
-	
 end
 
 local ns = W
@@ -146,13 +147,10 @@ end
 	
 local function UpdateSlot(self, slot)
 	local totem = self.TotemBar
-
 	local haveTotem, name, startTime, duration = GetTotemInfo(slot)
-	
 	totem[slot]:SetStatusBarColor(unpack(totem.colors[slot]))
 	totem[slot]:SetValue(0)	
 	totem[slot].ID = slot
-	
 	-- If we have a totem then set his value 
 	if(haveTotem) then
 		if totem[slot].Name then

@@ -22,5 +22,7 @@ M.addlast(function()
 		"Threat",
 		"ThreatBar",
 		"Castbar",
+		"AurasUnchor",
+		"Auras",
 	}) do W[i] = nil end
 end)

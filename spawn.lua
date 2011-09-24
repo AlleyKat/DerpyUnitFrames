@@ -35,6 +35,24 @@ local level = function(self)
 	self.level_:SetAllPoints(self)
 end
 
+local _t = function(self,x1,x2,x3,x4,x5)
+	self.point:SetPoint(x1,x2,x3,x4,x5)
+end
+local point = function(self,name,v)
+	local p = CreateFrame("Frame","DerpyUnitUnch_"..name,UIParent)
+	p:SetFrameStrata("LOW")
+	p:SetFrameLevel(20)
+	M.tex_move(p,string.upper(name),p.Hide)
+	M.make_movable(p)
+	p:Hide()
+	p:SetSize(v.w-8,v.h-8)
+	self:SetPoint("CENTER",p)
+	self.point = p
+	self.SetPoint = _t
+	self.ClearAllPoint = nil
+	self.SetAllPoints = nil
+end
+
 local spawn = function(self,unit)
 	local var = V[unit]
 	self.disallowVehicleSwap = true
@@ -45,6 +63,8 @@ local spawn = function(self,unit)
 	self:SetFrameStrata("LOW")
 	self:SetFrameLevel(0)
 	level(self)
+	point(self,unit,var)
+	W.AurasUnchor(self,unit)
 	W.Portrait(self,unit,var)
 	W.Health(self,unit,var)
 	W.Power(self,unit,var)
@@ -61,6 +81,7 @@ local spawn = function(self,unit)
 	W.Castbar(self,var,unit)
 	W.SniperOn(self,unit)
 	W.SniperOff(self,unit)
+	W.Auras(self,unit,var)
 	return self
 end
 
@@ -68,10 +89,10 @@ W.oUF:RegisterStyle("Alley",spawn)
 W.oUF:Factory(function(self)
 	self:SetActiveStyle"Alley"
 	self:Spawn"player":SetPoint("BOTTOM", UIParent, "BOTTOM", -338, 153)
-	self:Spawn"pet":SetPoint("TOPRIGHT",self.units.player, "TOPLEFT", 2, 12)
+	self:Spawn"pet":SetPoint("TOPRIGHT",self.units.player, "TOPLEFT", -2, 12)
 	smooth_show(self,"target"):SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 100)
-	smooth_show(self,"targettarget"):SetPoint("LEFT",self.units.target, "RIGHT", -2, -6)
-	smooth_show(self,"focus"):SetPoint("RIGHT",self.units.target, "LEFT", 2, -6)
+	smooth_show(self,"targettarget"):SetPoint("LEFT",self.units.target, "RIGHT", 2, -6)
+	smooth_show(self,"focus"):SetPoint("RIGHT",self.units.target, "LEFT", -2, -6)
 	if M.move_focus_target_up then
 		smooth_show(self,"focustarget"):SetPoint("BOTTOMRIGHT",self.units.focus,"TOPRIGHT", 0, 17)
 	else

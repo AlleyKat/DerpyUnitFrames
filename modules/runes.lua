@@ -29,8 +29,10 @@ W.Runes = function(self,var,unit)
 		if i == 1 then 
 			if var.isf_pos == "TOP" then
 				rune:SetPoint('TOPLEFT', self.Power, 'BOTTOMLEFT', 0, -6)
+				self.BottomAuraUnchor:NewOffset(var.ph+6)
 			else
 				rune:SetPoint('BOTTOMLEFT', self.Power, 'TOPLEFT', 0, 6)
+				self.TopAuraUnchor:NewOffset(var.ph+6)
 			end
 		else	
 			rune:SetPoint('LEFT', runes[i-1], 'RIGHT', 6, 0)

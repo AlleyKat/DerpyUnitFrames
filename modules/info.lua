@@ -16,14 +16,19 @@ W.Info = function(self,unit,tablevar)
 		local x = tablevar.power_pos == "RIGHT" and "LEFT" or "RIGHT"
 		local p = tablevar.isf_pos == "TOP" and "BOTTOM" or "TOP"
 		local y = tablevar.isf_pos == "TOP" and 2 or -2
+		if unit == 'pet' or unit == 'focus' then
+			self[tablevar.isf_pos == "TOP" and "TopAuraUnchor" or "BottomAuraUnchor"]:NewOffset(tablevar.isf_height+6)
+		end
 		isf:SetPoint(p..x,self,tablevar.isf_pos..x,0,tablevar.isf_pos == "TOP" and -2 or 2)
 		isf:SetSize(tablevar.power and tablevar.w+tablevar.pw+6 or tablevar.w,8+tablevar.isf_height)
 	else
 		isf:SetSize(tablevar.w,8+tablevar.isf_height)
 		if tablevar.isf_pos == "TOP" then
 			isf:SetPoint("BOTTOM",self,"TOP",0,-2)
+			self.TopAuraUnchor:NewOffset(tablevar.isf_height+6)
 		else
 			isf:SetPoint("TOP",self,"BOTTOM",0,2)
+			self.BottomAuraUnchor:NewOffset(tablevar.isf_height+6)
 		end
 		local H_value = M.setfont(isf,tablevar.isf_height,nil,nil,"RIGHT")
 		local P_value = M.setfont(isf,tablevar.isf_height)

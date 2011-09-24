@@ -17,6 +17,7 @@
 	<Script file="modules\portraits.lua"/>
 	<Script file="modules\focuspocus.lua"/>
 	<Script file="modules\castbar.lua"/>
+	<Script file="modules\auras.lua"/>
 	<Script file="popup.lua"/>
 	<Script file="spawn.lua"/>
 	<Script file="clean.lua"/>
